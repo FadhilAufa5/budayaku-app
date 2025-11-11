@@ -2,7 +2,7 @@ import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { CalendarDays, MapPin, ShoppingBag, Sparkles } from 'lucide-react';
 import { WelcomeNavigation } from '@/components/welcome-navigation';
-import { dashboard } from '@/routes';
+import { dashboard, login, register } from '@/routes';
 
 export default function Welcome({
     canRegister = true,

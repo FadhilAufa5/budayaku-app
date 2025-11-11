@@ -17,8 +17,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Cultures Routes
     Route::prefix('events')->group(function () {
-        Route::get('cultures', [\App\Http\Controllers\Cultures\CultureController::class, 'index'])->name('cultures.index');
-        Route::get('culture-categories', [\App\Http\Controllers\Cultures\CultureCategoryController::class, 'index'])->name('culture-categories.index');
+        Route::resource('cultures', \App\Http\Controllers\Cultures\CultureController::class)->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('culture-categories', \App\Http\Controllers\Cultures\CultureCategoryController::class)->only(['index', 'store', 'update', 'destroy']);
         Route::get('culture-reviews', [\App\Http\Controllers\Cultures\CultureReviewController::class, 'index'])->name('culture-reviews.index');
     });
 
