@@ -24,8 +24,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Events Routes
     Route::prefix('events')->group(function () {
-        Route::get('list', [\App\Http\Controllers\Events\EventController::class, 'index'])->name('events.index');
-        Route::get('categories', [\App\Http\Controllers\Events\EventCategoryController::class, 'index'])->name('event-categories.index');
+        Route::resource('list', \App\Http\Controllers\Events\EventController::class)->parameters(['list' => 'event'])->names([
+            'index' => 'events.index',
+            'store' => 'events.store',
+            'update' => 'events.update',
+            'destroy' => 'events.destroy',
+        ])->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('categories', \App\Http\Controllers\Events\EventCategoryController::class)->parameters(['categories' => 'eventCategory'])->names([
+            'index' => 'event-categories.index',
+            'store' => 'event-categories.store',
+            'update' => 'event-categories.update',
+            'destroy' => 'event-categories.destroy',
+        ])->only(['index', 'store', 'update', 'destroy']);
         Route::get('schedule', [\App\Http\Controllers\Events\EventScheduleController::class, 'index'])->name('event-schedule.index');
     });
 

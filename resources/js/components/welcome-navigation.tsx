@@ -57,26 +57,48 @@ const about = [
 export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps) {
     const { auth } = usePage<SharedData>().props;
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+    const [isScrolled, setIsScrolled] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            // Check if scrolled past 80vh (approximately past the hero video)
+            setIsScrolled(window.scrollY > window.innerHeight * 0.8);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <header className="relative z-10 w-full border-b border-amber-200/50 bg-white/80 backdrop-blur-md dark:border-amber-800/50 dark:bg-amber-950/80">
+        <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+            isScrolled 
+                ? 'border-b border-amber-200/50 bg-white/95 shadow-lg backdrop-blur-md dark:border-amber-800/50 dark:bg-amber-950/95' 
+                : 'bg-transparent'
+        }`}>
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
                 {/* Logo */}
-                <div className="flex items-center gap-3">
-                    {/* <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-600 to-orange-600 text-white shadow-lg">
-                        <Sparkles className="h-6 w-6" />
-                    </div> */}
-                    <span className="text-xl font-bold text-amber-900 dark:text-amber-100 lg:text-2xl">
-                        Budaya Go
-                    </span>
-                </div>
+                <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105">
+                    <img 
+                        src="/logo.png" 
+                        alt="Budaya Go Logo" 
+                        className={`h-10 w-auto transition-all duration-300 lg:h-12 ${
+                            isScrolled 
+                                ? 'brightness-100' 
+                                : 'brightness-0 invert'
+                        }`}
+                    />
+                </Link>
 
                 {/* Desktop Navigation Menu - Center */}
                 <NavigationMenu className="hidden lg:flex">
                     <NavigationMenuList className="gap-2">
                         {/* Features Menu */}
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger className="bg-transparent text-base font-medium text-amber-900 hover:bg-amber-100/50 data-[active]:bg-amber-100/50 data-[state=open]:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30 dark:data-[active]:bg-amber-900/30 dark:data-[state=open]:bg-amber-900/30">
+                            <NavigationMenuTrigger className={`bg-transparent text-base font-medium transition-colors ${
+                                isScrolled
+                                    ? 'text-amber-900 hover:bg-amber-100/50 data-[active]:bg-amber-100/50 data-[state=open]:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30 dark:data-[active]:bg-amber-900/30 dark:data-[state=open]:bg-amber-900/30'
+                                    : 'text-white hover:bg-white/10 data-[active]:bg-white/10 data-[state=open]:bg-white/10'
+                            }`}>
                                 Fitur
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
@@ -97,7 +119,11 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
 
                         {/* About Menu */}
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger className="bg-transparent text-base font-medium text-amber-900 hover:bg-amber-100/50 data-[active]:bg-amber-100/50 data-[state=open]:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30 dark:data-[active]:bg-amber-900/30 dark:data-[state=open]:bg-amber-900/30">
+                            <NavigationMenuTrigger className={`bg-transparent text-base font-medium transition-colors ${
+                                isScrolled
+                                    ? 'text-amber-900 hover:bg-amber-100/50 data-[active]:bg-amber-100/50 data-[state=open]:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30 dark:data-[active]:bg-amber-900/30 dark:data-[state=open]:bg-amber-900/30'
+                                    : 'text-white hover:bg-white/10 data-[active]:bg-white/10 data-[state=open]:bg-white/10'
+                            }`}>
                                 Tentang
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
@@ -131,7 +157,11 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
                         <>
                             <Link
                                 href={login()}
-                                className="hidden rounded-lg border-2 border-amber-600 px-4 py-2 text-sm font-medium text-amber-900 transition-all hover:bg-amber-600 hover:text-white dark:border-amber-400 dark:text-amber-100 dark:hover:bg-amber-600 md:inline-block lg:px-6 lg:py-2.5"
+                                className={`hidden rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all md:inline-block lg:px-6 lg:py-2.5 ${
+                                    isScrolled
+                                        ? 'border-amber-600 text-amber-900 hover:bg-amber-600 hover:text-white dark:border-amber-400 dark:text-amber-100 dark:hover:bg-amber-600'
+                                        : 'border-white/50 text-white hover:bg-white hover:text-amber-900'
+                                }`}
                             >
                                 Masuk
                             </Link>
@@ -149,7 +179,11 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="inline-flex items-center justify-center rounded-lg p-2 text-amber-900 hover:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30 lg:hidden"
+                        className={`inline-flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden ${
+                            isScrolled
+                                ? 'text-amber-900 hover:bg-amber-100/50 dark:text-amber-100 dark:hover:bg-amber-900/30'
+                                : 'text-white hover:bg-white/10'
+                        }`}
                         aria-label="Toggle menu"
                     >
                         {mobileMenuOpen ? (
