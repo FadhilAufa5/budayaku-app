@@ -174,7 +174,7 @@ export default function BudayaIndex({
 
                 {/* DomeGallery Showcase Section - Natural & Seamless */}
                 {featuredCultures && featuredCultures.length > 0 && (
-                    <div className="relative h-[700px] overflow-visible">
+                    <div className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-visible">
                         {/* Smooth Gradient Background - No Borders */}
                         <div className="absolute inset-0 -mx-6 lg:-mx-12">
                             <div className="absolute inset-0 bg-gradient-to-b from-amber-50/0 via-amber-50/40 to-amber-50/0 dark:from-amber-950/0 dark:via-amber-950/40 dark:to-amber-950/0"></div>
@@ -194,22 +194,22 @@ export default function BudayaIndex({
                                     alt: culture.name
                                 }))}
                                 fit={0.6}
-                                minRadius={300}
-                                maxRadius={1000}
+                                minRadius={200}
+                                maxRadius={800}
                                 segments={35}
                                 overlayBlurColor="rgba(255, 251, 235, 0)"
-                                imageBorderRadius="16px"
-                                openedImageBorderRadius="20px"
+                                imageBorderRadius="12px"
+                                openedImageBorderRadius="16px"
                                 grayscale={false}
-                                openedImageWidth="600px"
-                                openedImageHeight="600px"
+                                openedImageWidth="min(90vw, 400px)"
+                                openedImageHeight="min(90vw, 400px)"
                                 dragSensitivity={16}
                             />
                         </div>
                         
                         {/* Instruction Text - Floating */}
                         <div className="absolute bottom-12 left-0 right-0 z-20 text-center pointer-events-none">
-                            <p className="text-sm font-semibold text-amber-900 dark:text-amber-100 bg-white/70 dark:bg-black/50 backdrop-blur-xl px-6 py-3 rounded-full inline-block shadow-2xl animate-bounce border border-amber-300/30 dark:border-amber-700/30">
+                            <p className="text-xs sm:text-sm font-semibold text-amber-900 dark:text-amber-100 bg-white/70 dark:bg-black/50 backdrop-blur-xl px-4 sm:px-6 py-2 sm:py-3 rounded-full inline-block shadow-2xl animate-bounce border border-amber-300/30 dark:border-amber-700/30">
                                 🎨 Geser & Klik untuk Eksplorasi
                             </p>
                         </div>
