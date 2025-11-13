@@ -167,7 +167,7 @@ export default function Welcome({
                             
                         <div id="budaya" className="grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3 lg:py-16">
                             {/* Feature 1 - Budaya */}
-                            <div className="group relative overflow-hidden rounded-2xl bg-white/60 p-8 shadow-xl backdrop-blur-sm transition-all hover:scale-105 hover:shadow-2xl dark:bg-amber-900/20">
+                            <Link href="/budaya" className="group relative overflow-hidden rounded-2xl bg-white/60 p-8 shadow-xl backdrop-blur-sm transition-all hover:scale-105 hover:shadow-2xl dark:bg-amber-900/20">
                                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-amber-400/30 to-orange-500/30 blur-2xl"></div>
                                 <div className="relative">
                                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg">
@@ -186,7 +186,7 @@ export default function Welcome({
                                         </svg>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                             {/* Feature 2 - Event */}
                             <div id="event" className="group relative overflow-hidden rounded-2xl bg-white/60 p-8 shadow-xl backdrop-blur-sm transition-all hover:scale-105 hover:shadow-2xl dark:bg-amber-900/20">

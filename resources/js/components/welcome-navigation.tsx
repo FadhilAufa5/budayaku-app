@@ -21,7 +21,7 @@ interface WelcomeNavigationProps {
 const features = [
     {
         title: 'Budaya Indonesia',
-        href: '#budaya',
+        href: '/budaya',
         description: 'Jelajahi kekayaan budaya dari Sabang sampai Merauke',
         icon: Sparkles,
     },
@@ -42,7 +42,7 @@ const features = [
 const about = [
     {
         title: 'Tentang Kami',
-        href: '#tentang',
+        href: '/about',
         description: 'Kenali lebih dekat visi dan misi BudayaKu',
         icon: Users,
     },
