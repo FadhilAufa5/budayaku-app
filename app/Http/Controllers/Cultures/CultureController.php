@@ -74,9 +74,13 @@ class CultureController extends Controller
             'culture_category_id' => 'required|exists:culture_categories,id',
             'region' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'status' => 'required|in:active,inactive',
         ]);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('cultures', 'public');
+        }
 
         Culture::create($validated);
 
@@ -90,9 +94,20 @@ class CultureController extends Controller
             'culture_category_id' => 'required|exists:culture_categories,id',
             'region' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'status' => 'required|in:active,inactive',
         ]);
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($culture->image && Storage::disk('public')->exists($culture->image)) {
+                Storage::disk('public')->delete($culture->image);
+            }
+            $validated['image'] = $request->file('image')->store('cultures', 'public');
+        } else {
+            // Keep the old image if no new image is uploaded
+            unset($validated['image']);
+        }
 
         $culture->update($validated);
 
@@ -101,6 +116,11 @@ class CultureController extends Controller
 
     public function destroy(Culture $culture)
     {
+        // Delete image if exists
+        if ($culture->image && Storage::disk('public')->exists($culture->image)) {
+            Storage::disk('public')->delete($culture->image);
+        }
+
         $culture->delete();
 
         return redirect()->route('cultures.index')->with('success', 'Budaya berhasil dihapus.');

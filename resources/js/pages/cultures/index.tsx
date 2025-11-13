@@ -181,12 +181,21 @@ export default function CulturesIndex({ cultures, categories, stats, filters }: 
                     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {cultures.data.map((culture) => (
                             <Card key={culture.id} className="group overflow-hidden transition-all hover:shadow-lg">
-                                <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={culture.image || 'https://images.unsplash.com/photo-1555400038-63f526b1c3b8?w=400'}
-                                        alt={culture.name}
-                                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                    />
+                                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900">
+                                    {culture.image ? (
+                                        <img
+                                            src={`/storage/${culture.image}`}
+                                            alt={culture.name}
+                                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                        />
+                                    ) : (
+                                        <div className="flex h-full w-full items-center justify-center">
+                                            <div className="text-center">
+                                                <MapPin className="mx-auto h-16 w-16 text-amber-400 opacity-50" />
+                                                <p className="mt-2 text-sm text-amber-600 dark:text-amber-400">No Image</p>
+                                            </div>
+                                        </div>
+                                    )}
                                     <div className="absolute top-2 right-2">
                                         <Badge variant="secondary" className="bg-white/90 backdrop-blur-sm">
                                             {culture.category}
