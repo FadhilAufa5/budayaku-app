@@ -122,7 +122,7 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
 
                         {/* Event Link */}
                         <NavigationMenuItem>
-                            <Link href="/events">
+                            <Link href="/event">
                                 <NavigationMenuLink className={`group inline-flex h-10 w-max items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                     isScrolled
                                         ? 'text-amber-900 hover:bg-amber-100/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
@@ -136,7 +136,7 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
 
                         {/* Toko Lokal Link */}
                         <NavigationMenuItem>
-                            <Link href="#toko">
+                            <Link href="https://hand-tracking-beige.vercel.app/">
                                 <NavigationMenuLink className={`group inline-flex h-10 w-max items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                     isScrolled
                                         ? 'text-amber-900 hover:bg-amber-100/60 dark:text-amber-100 dark:hover:bg-amber-900/40'
@@ -353,7 +353,7 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
                             </Link>
 
                             <Link
-                                href="/events/list"
+                                href="/event"
                                 className="flex items-center gap-3 rounded-lg p-3 transition-all hover:bg-amber-100/50 hover:scale-[1.02] active:scale-[0.98] dark:hover:bg-amber-900/30"
                                 onClick={() => setMobileMenuOpen(false)}
                             >

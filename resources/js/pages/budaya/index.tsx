@@ -174,7 +174,7 @@ export default function BudayaIndex({
 
                 {/* DomeGallery Showcase Section - Natural & Seamless */}
                 {featuredCultures && featuredCultures.length > 0 && (
-                    <div className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-visible">
+                    <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-visible">
                         {/* Smooth Gradient Background - No Borders */}
                         <div className="absolute inset-0 -mx-6 lg:-mx-12">
                             <div className="absolute inset-0 bg-gradient-to-b from-amber-50/0 via-amber-50/40 to-amber-50/0 dark:from-amber-950/0 dark:via-amber-950/40 dark:to-amber-950/0"></div>
@@ -217,9 +217,9 @@ export default function BudayaIndex({
                 )}
 
                 {/* About Indonesian Culture Section */}
-                <div className="relative px-6 py-16 lg:px-12 lg:py-20">
+                <div className="relative px-6 py-12 sm:py-16 lg:px-12 lg:py-20">
                     <div className="mx-auto max-w-7xl">
-                        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+                        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
                             {/* Left Column - Text Content */}
                             <div className="space-y-6">
                                 <div>
@@ -310,13 +310,13 @@ export default function BudayaIndex({
 
                             {/* Right Column - Indonesia Map */}
                             <div className="space-y-6">
-                                <div className="relative overflow-hidden rounded-3xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-2xl dark:border-amber-800 dark:from-amber-950 dark:to-orange-950">
+                                <div className="relative overflow-hidden rounded-3xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-4 sm:p-6 lg:p-8 shadow-2xl dark:border-amber-800 dark:from-amber-950 dark:to-orange-950">
                                     {/* Decorative Pattern */}
                                     <div className="absolute right-0 top-0 h-40 w-40 -translate-y-10 translate-x-10 rounded-full bg-amber-500/10 blur-3xl"></div>
                                     <div className="absolute bottom-0 left-0 h-40 w-40 translate-x-10 translate-y-10 rounded-full bg-orange-500/10 blur-3xl"></div>
                                     
-                                    <div className="relative space-y-6">
-                                        <h3 className="mb-6 text-2xl font-bold text-amber-900 dark:text-amber-100">
+                                    <div className="relative space-y-4 sm:space-y-6">
+                                        <h3 className="mb-4 sm:mb-6 text-lg sm:text-xl lg:text-2xl font-bold text-amber-900 dark:text-amber-100">
                                             Peta Indonesia & Statistik Budaya
                                         </h3>
                                         
@@ -327,18 +327,18 @@ export default function BudayaIndex({
                                                 className="w-full h-auto rounded-2xl shadow-lg transition-all duration-500 hover:scale-105"
                                             />
                                         {/* Additional Info */}
-                                        <div className="mt-4 grid grid-cols-3 gap-3 rounded-2xl border border-amber-300/50 bg-gradient-to-r from-amber-100/50 to-orange-100/50 p-4 backdrop-blur-sm dark:border-amber-700/50 dark:from-amber-900/30 dark:to-orange-900/30">
+                                        <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3 rounded-2xl border border-amber-300/50 bg-gradient-to-r from-amber-100/50 to-orange-100/50 p-3 sm:p-4 backdrop-blur-sm dark:border-amber-700/50 dark:from-amber-900/30 dark:to-orange-900/30">
                                             <div className="text-center">
-                                                <div className="text-xl font-bold text-amber-900 dark:text-amber-100">38</div>
-                                                <div className="text-xs text-amber-700 dark:text-amber-300">Provinsi</div>
+                                                <div className="text-lg sm:text-xl font-bold text-amber-900 dark:text-amber-100">38</div>
+                                                <div className="text-[10px] sm:text-xs text-amber-700 dark:text-amber-300">Provinsi</div>
                                             </div>
                                             <div className="text-center border-x border-amber-300/50 dark:border-amber-700/50">
-                                                <div className="text-xl font-bold text-amber-900 dark:text-amber-100">700+</div>
-                                                <div className="text-xs text-amber-700 dark:text-amber-300">Bahasa</div>
+                                                <div className="text-lg sm:text-xl font-bold text-amber-900 dark:text-amber-100">700+</div>
+                                                <div className="text-[10px] sm:text-xs text-amber-700 dark:text-amber-300">Bahasa</div>
                                             </div>
                                             <div className="text-center">
-                                                <div className="text-xl font-bold text-amber-900 dark:text-amber-100">1.3K+</div>
-                                                <div className="text-xs text-amber-700 dark:text-amber-300">Suku</div>
+                                                <div className="text-lg sm:text-xl font-bold text-amber-900 dark:text-amber-100">1.3K+</div>
+                                                <div className="text-[10px] sm:text-xs text-amber-700 dark:text-amber-300">Suku</div>
                                             </div>
                                         </div>
                                     </div>
@@ -368,52 +368,52 @@ export default function BudayaIndex({
                                 Filter berdasarkan kategori atau wilayah untuk menemukan budaya yang Anda cari.
                             </p>
                             
-                            {/* Statistics Row */}
-                            <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-6 text-center">
+                            {/* Statistics Row - Responsive Grid */}
+                            <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-4 sm:flex sm:items-center sm:justify-center sm:gap-6 text-center">
                                 <div className="group">
-                                    <div className="mb-1 text-3xl font-bold text-amber-900 transition-transform group-hover:scale-110 dark:text-amber-100">
+                                    <div className="mb-1 text-2xl sm:text-3xl font-bold text-amber-900 transition-transform group-hover:scale-110 dark:text-amber-100">
                                         {stats.total}+
                                     </div>
-                                    <div className="text-sm text-amber-700 dark:text-amber-300">Budaya</div>
+                                    <div className="text-xs sm:text-sm text-amber-700 dark:text-amber-300">Budaya</div>
                                 </div>
-                                <div className="h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
+                                <div className="hidden sm:block h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
                                 <div className="group">
-                                    <div className="mb-1 text-3xl font-bold text-blue-900 transition-transform group-hover:scale-110 dark:text-blue-100">
+                                    <div className="mb-1 text-2xl sm:text-3xl font-bold text-blue-900 transition-transform group-hover:scale-110 dark:text-blue-100">
                                         {stats.categories}
                                     </div>
-                                    <div className="text-sm text-blue-700 dark:text-blue-300">Kategori</div>
+                                    <div className="text-xs sm:text-sm text-blue-700 dark:text-blue-300">Kategori</div>
                                 </div>
-                                <div className="h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
+                                <div className="hidden sm:block h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
                                 <div className="group">
-                                    <div className="mb-1 text-3xl font-bold text-emerald-900 transition-transform group-hover:scale-110 dark:text-emerald-100">
+                                    <div className="mb-1 text-2xl sm:text-3xl font-bold text-emerald-900 transition-transform group-hover:scale-110 dark:text-emerald-100">
                                         {stats.regions}+
                                     </div>
-                                    <div className="text-sm text-emerald-700 dark:text-emerald-300">Daerah</div>
+                                    <div className="text-xs sm:text-sm text-emerald-700 dark:text-emerald-300">Daerah</div>
                                 </div>
-                                <div className="h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
+                                <div className="hidden sm:block h-12 w-px bg-amber-300 dark:bg-amber-700"></div>
                                 <div className="group">
-                                    <div className="mb-1 text-3xl font-bold text-purple-900 transition-transform group-hover:scale-110 dark:text-purple-100">
+                                    <div className="mb-1 text-2xl sm:text-3xl font-bold text-purple-900 transition-transform group-hover:scale-110 dark:text-purple-100">
                                         {stats.totalViews.toLocaleString()}
                                     </div>
-                                    <div className="text-sm text-purple-700 dark:text-purple-300">Total Views</div>
+                                    <div className="text-xs sm:text-sm text-purple-700 dark:text-purple-300">Total Views</div>
                                 </div>
                             </div>
                         </div>
                      
                         {/* Enhanced Filters with Pills/Chips Style */}
-                        <div className="mb-10 space-y-6 rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-white/80 via-amber-50/50 to-orange-50/50 p-6 backdrop-blur-sm shadow-xl dark:border-amber-800 dark:from-amber-950/80 dark:via-amber-950/50 dark:to-orange-950/50 lg:p-8">
+                        <div className="mb-10 space-y-4 sm:space-y-6 rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-white/80 via-amber-50/50 to-orange-50/50 p-4 sm:p-6 backdrop-blur-sm shadow-xl dark:border-amber-800 dark:from-amber-950/80 dark:via-amber-950/50 dark:to-orange-950/50 lg:p-8">
                             {/* Filter by Category - Pills Style */}
                             <div className="space-y-3">
                                 <div className="flex items-center gap-2">
-                                    <Filter className="h-5 w-5 text-amber-600 dark:text-amber-400" />
-                                    <span className="text-sm font-bold text-amber-900 dark:text-amber-100">
+                                    <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600 dark:text-amber-400" />
+                                    <span className="text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-100">
                                         Filter Kategori
                                     </span>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                     <button
                                         onClick={() => handleFilter('category', 'all')}
-                                        className={`group relative overflow-hidden rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+                                        className={`group relative overflow-hidden rounded-full border-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                             selectedCategory === 'all'
                                                 ? 'border-amber-500 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
                                                 : 'border-amber-300 bg-white text-amber-900 hover:border-amber-400 hover:bg-amber-50 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100'
@@ -428,7 +428,7 @@ export default function BudayaIndex({
                                         <button
                                             key={cat.id}
                                             onClick={() => handleFilter('category', cat.id.toString())}
-                                            className={`group relative overflow-hidden rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+                                            className={`group relative overflow-hidden rounded-full border-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                                 selectedCategory === cat.id.toString()
                                                     ? 'border-blue-500 bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg'
                                                     : 'border-amber-300 bg-white text-amber-900 hover:border-blue-400 hover:bg-blue-50 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100'
@@ -454,15 +454,15 @@ export default function BudayaIndex({
                             {/* Filter by Region - Pills Style */}
                             <div className="space-y-3">
                                 <div className="flex items-center gap-2">
-                                    <MapPin className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-                                    <span className="text-sm font-bold text-amber-900 dark:text-amber-100">
+                                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 dark:text-emerald-400" />
+                                    <span className="text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-100">
                                         Filter Daerah
                                     </span>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                     <button
                                         onClick={() => handleFilter('region', 'all')}
-                                        className={`group relative overflow-hidden rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+                                        className={`group relative overflow-hidden rounded-full border-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                             selectedRegion === 'all'
                                                 ? 'border-emerald-500 bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg'
                                                 : 'border-amber-300 bg-white text-amber-900 hover:border-emerald-400 hover:bg-emerald-50 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100'
@@ -477,7 +477,7 @@ export default function BudayaIndex({
                                         <button
                                             key={region}
                                             onClick={() => handleFilter('region', region)}
-                                            className={`group relative overflow-hidden rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:scale-105 ${
+                                            className={`group relative overflow-hidden rounded-full border-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                                                 selectedRegion === region
                                                     ? 'border-purple-500 bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
                                                     : 'border-amber-300 bg-white text-amber-900 hover:border-purple-400 hover:bg-purple-50 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100'
@@ -493,8 +493,8 @@ export default function BudayaIndex({
                             </div>
 
                             {/* View Mode & Results Count */}
-                            <div className="flex flex-col items-center justify-between gap-4 pt-2 sm:flex-row">
-                                <div className="text-sm text-amber-700 dark:text-amber-300">
+                            <div className="flex flex-col items-center justify-between gap-3 pt-2 sm:flex-row sm:gap-4">
+                                <div className="text-xs sm:text-sm text-amber-700 dark:text-amber-300">
                                     Menampilkan{' '}
                                     <span className="font-bold text-amber-900 dark:text-amber-100">
                                         {cultures.data.length}
@@ -505,7 +505,7 @@ export default function BudayaIndex({
                                     </span>{' '}
                                     budaya
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="hidden sm:flex items-center gap-2">
                                     <span className="text-sm font-medium text-amber-700 dark:text-amber-300">
                                         Tampilan:
                                     </span>
@@ -551,14 +551,14 @@ export default function BudayaIndex({
                                             className="group animate-in fade-in slide-in-from-bottom-4"
                                             style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}
                                         >
-                                            <Card className={`group relative overflow-hidden border-2 border-amber-200 bg-white/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-amber-400 hover:shadow-2xl dark:border-amber-800 dark:bg-amber-950/90 ${viewMode === 'list' ? 'flex flex-row' : ''}`}>
+                                            <Card className={`group relative overflow-hidden border-2 border-amber-200 bg-white/90 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-amber-400 hover:shadow-2xl dark:border-amber-800 dark:bg-amber-950/90 ${viewMode === 'list' ? 'flex flex-col sm:flex-row' : ''}`}>
                                                 {/* Decorative Gradient Overlay */}
                                                 <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-orange-500/5 to-red-500/5"></div>
                                                 </div>
 
                                                 {/* Image Container */}
-                                                <div className={`relative overflow-hidden bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 dark:from-amber-900 dark:via-orange-900 dark:to-red-900 ${viewMode === 'grid' ? 'h-56' : 'h-40 w-40 flex-shrink-0'}`}>
+                                                <div className={`relative overflow-hidden bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 dark:from-amber-900 dark:via-orange-900 dark:to-red-900 ${viewMode === 'grid' ? 'h-48 sm:h-56' : 'h-48 w-full sm:h-40 sm:w-40 flex-shrink-0'}`}>
                                                     {culture.image ? (
                                                         <>
                                                             <img
@@ -585,7 +585,7 @@ export default function BudayaIndex({
                                                 </div>
 
                                                 {/* Content */}
-                                                <CardContent className={`relative z-10 ${viewMode === 'grid' ? 'p-5' : 'flex flex-1 flex-col justify-center p-5'}`}>
+                                                <CardContent className={`relative z-10 ${viewMode === 'grid' ? 'p-4 sm:p-5' : 'flex flex-1 flex-col justify-center p-4 sm:p-5'}`}>
                                                     {/* Category Badge */}
                                                     <Badge className="mb-3 w-fit border-0 bg-gradient-to-r from-amber-500/15 to-orange-500/15 px-3 py-1 text-xs font-semibold text-amber-900 shadow-sm transition-all duration-300 group-hover:from-amber-500/25 group-hover:to-orange-500/25 group-hover:shadow-md dark:text-amber-100">
                                                         {culture.category}
@@ -632,7 +632,7 @@ export default function BudayaIndex({
 
                                 {/* Pagination */}
                                 {cultures.last_page > 1 && (
-                                    <div className="mt-8 flex items-center justify-center gap-2">
+                                    <div className="mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
                                         {cultures.links.map((link, index) => (
                                             <Button
                                                 key={index}
@@ -640,11 +640,11 @@ export default function BudayaIndex({
                                                 size="sm"
                                                 disabled={!link.url}
                                                 onClick={() => link.url && router.visit(link.url)}
-                                                className={
+                                                className={`min-w-[32px] h-8 px-2 sm:min-w-[40px] sm:h-9 sm:px-3 ${
                                                     link.active
                                                         ? 'bg-amber-600 hover:bg-amber-700'
                                                         : 'border-amber-200 text-amber-900 hover:bg-amber-100 dark:border-amber-800 dark:text-amber-100'
-                                                }
+                                                }`}
                                                 dangerouslySetInnerHTML={{ __html: link.label }}
                                             />
                                         ))}
@@ -666,15 +666,15 @@ export default function BudayaIndex({
                 </div>
 
                 {/* Footer */}
-                <footer className="relative border-t border-amber-200 bg-white/50 px-6 py-8 backdrop-blur-sm dark:border-amber-800 dark:bg-amber-950/50 lg:px-12">
-                    <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+                <footer className="relative border-t border-amber-200 bg-white/50 px-6 py-6 sm:py-8 backdrop-blur-sm dark:border-amber-800 dark:bg-amber-950/50 lg:px-12">
+                    <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 sm:gap-4 md:flex-row">
                         <div className="flex items-center gap-2 text-amber-900 dark:text-amber-100">
-                            <MapPin className="h-5 w-5" />
-                            <span className="text-sm font-medium">
+                            <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+                            <span className="text-xs sm:text-sm font-medium text-center sm:text-left">
                                 Indonesia - Dari Sabang sampai Merauke
                             </span>
                         </div>
-                        <div className="text-center text-sm text-amber-800/80 dark:text-amber-200/80">
+                        <div className="text-center text-xs sm:text-sm text-amber-800/80 dark:text-amber-200/80">
                             © 2025 BudayaKu | Lestarikan Budaya Indonesia
                         </div>
                     </div>

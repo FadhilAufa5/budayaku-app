@@ -321,133 +321,192 @@ export default function About({ stats, team }: AboutProps) {
                     </div>
                 </div>
 
-                {/* Mission & Vision Section */}
-                <div className="relative border-y border-amber-200 bg-white/50 px-6 py-16 backdrop-blur-sm dark:border-amber-800 dark:bg-amber-950/50 lg:px-12">
+                {/* Mission & Vision Section - Enhanced */}
+                <div className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 px-6 py-20 dark:from-amber-950 dark:via-orange-950 dark:to-red-950 lg:px-12 lg:py-32">
                     <div className="mx-auto max-w-7xl">
-                        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4">
-                            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                                Misi & Visi Kami
+                        {/* Section Header */}
+                        <div className="mb-16 text-center">
+                            <Badge className="mb-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 px-4 py-2 text-amber-900 dark:text-amber-100">
+                                <Sparkles className="mr-2 h-4 w-4" />
+                                Visi & Misi
+                            </Badge>
+                            <h2 className="mb-4 text-3xl font-bold tracking-tight text-amber-900 dark:text-amber-100 sm:text-4xl lg:text-5xl">
+                                Tujuan & Komitmen Kami
                             </h2>
-                            <p className="mx-auto max-w-2xl text-muted-foreground">
-                                Membangun jembatan antara tradisi dan modernitas
+                            <p className="mx-auto max-w-2xl text-lg text-amber-800/80 dark:text-amber-200/80">
+                                Membangun jembatan antara tradisi dan modernitas untuk masa depan budaya Indonesia
                             </p>
                         </div>
 
-                        <div className="grid gap-8 lg:grid-cols-3">
-                            {/* Vision */}
-                            <Card className="group relative overflow-hidden border-2 transition-all hover:scale-105 hover:border-amber-500 hover:shadow-xl">
-                                <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-amber-500/10 transition-all group-hover:scale-150"></div>
-                                <CardHeader>
-                                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-lg">
-                                        <Eye className="h-7 w-7" />
+                        {/* Vision - Large Featured Card */}
+                        <div className="mb-12">
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-amber-200/50 bg-white/80 p-8 shadow-2xl backdrop-blur-sm transition-all hover:shadow-amber-500/25 dark:border-amber-800/50 dark:bg-amber-950/80 lg:p-12">
+                                {/* Decorative Elements */}
+                                <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-amber-400/10 to-orange-500/10 blur-3xl"></div>
+                                <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-gradient-to-br from-orange-400/10 to-red-500/10 blur-3xl"></div>
+                                
+                                <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
+                                    {/* Icon Section */}
+                                    <div className="flex justify-center lg:col-span-3 lg:justify-start">
+                                        <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-2xl lg:h-32 lg:w-32">
+                                            <Eye className="h-12 w-12 text-white lg:h-16 lg:w-16" />
+                                        </div>
                                     </div>
-                                    <CardTitle>Visi</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        Menjadi platform terdepan dalam pelestarian dan
-                                        promosi budaya Indonesia, menghubungkan tradisi
-                                        dengan generasi digital.
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                    
+                                    {/* Content Section */}
+                                    <div className="lg:col-span-9">
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <h3 className="text-3xl font-bold text-amber-900 dark:text-amber-100 lg:text-4xl">
+                                                Visi Kami
+                                            </h3>
+                                            <div className="h-px flex-1 bg-gradient-to-r from-amber-300 to-transparent dark:from-amber-700"></div>
+                                        </div>
+                                        <p className="text-lg leading-relaxed text-amber-800 dark:text-amber-200 lg:text-xl">
+                                            Menjadi <strong className="text-amber-900 dark:text-amber-100">platform terdepan</strong> dalam pelestarian dan promosi budaya Indonesia, 
+                                            menghubungkan tradisi dengan generasi digital. Kami berkomitmen untuk menjadikan warisan budaya nusantara 
+                                            dapat diakses oleh siapa saja, di mana saja, kapan saja.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            {/* Mission */}
-                            <Card className="group relative overflow-hidden border-2 transition-all hover:scale-105 hover:border-blue-500 hover:shadow-xl">
-                                <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-blue-500/10 transition-all group-hover:scale-150"></div>
-                                <CardHeader>
-                                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg">
-                                        <Target className="h-7 w-7" />
+                        {/* Mission - Large Featured Card */}
+                        <div className="mb-12">
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-blue-200/50 bg-white/80 p-8 shadow-2xl backdrop-blur-sm transition-all hover:shadow-blue-500/25 dark:border-blue-800/50 dark:bg-blue-950/80 lg:p-12">
+                                {/* Decorative Elements */}
+                                <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-blue-400/10 to-indigo-500/10 blur-3xl"></div>
+                                <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-br from-indigo-400/10 to-purple-500/10 blur-3xl"></div>
+                                
+                                <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
+                                    {/* Content Section */}
+                                    <div className="lg:col-span-9">
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <h3 className="text-3xl font-bold text-blue-900 dark:text-blue-100 lg:text-4xl">
+                                                Misi Kami
+                                            </h3>
+                                            <div className="h-px flex-1 bg-gradient-to-r from-blue-300 to-transparent dark:from-blue-700"></div>
+                                        </div>
+                                        <div className="space-y-4">
+                                            <p className="text-lg leading-relaxed text-blue-800 dark:text-blue-200 lg:text-xl">
+                                                Kami hadir dengan tiga fokus utama:
+                                            </p>
+                                            <ul className="space-y-3 text-base text-blue-800 dark:text-blue-200 lg:text-lg">
+                                                <li className="flex items-start gap-3">
+                                                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500 text-white">
+                                                        <span className="text-sm font-bold">1</span>
+                                                    </div>
+                                                    <span><strong>Mendokumentasikan</strong> berbagai bentuk budaya Indonesia dalam format digital yang mudah diakses</span>
+                                                </li>
+                                                <li className="flex items-start gap-3">
+                                                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500 text-white">
+                                                        <span className="text-sm font-bold">2</span>
+                                                    </div>
+                                                    <span><strong>Melestarikan</strong> warisan budaya melalui teknologi digital yang inovatif dan interaktif</span>
+                                                </li>
+                                                <li className="flex items-start gap-3">
+                                                    <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500 text-white">
+                                                        <span className="text-sm font-bold">3</span>
+                                                    </div>
+                                                    <span><strong>Mempromosikan</strong> kekayaan budaya Indonesia kepada generasi muda dan dunia internasional</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <CardTitle>Misi</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        Mendokumentasikan, melestarikan, dan mempromosikan
-                                        kekayaan budaya Indonesia melalui teknologi digital
-                                        yang inovatif dan mudah diakses.
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                    
+                                    {/* Icon Section */}
+                                    <div className="flex justify-center lg:col-span-3 lg:justify-end">
+                                        <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-2xl lg:h-32 lg:w-32">
+                                            <Target className="h-12 w-12 text-white lg:h-16 lg:w-16" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            {/* Values */}
-                            <Card className="group relative overflow-hidden border-2 transition-all hover:scale-105 hover:border-emerald-500 hover:shadow-xl">
-                                <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-emerald-500/10 transition-all group-hover:scale-150"></div>
-                                <CardHeader>
-                                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 text-white shadow-lg">
-                                        <Heart className="h-7 w-7" />
+                        {/* Values - Compact Card */}
+                        <div>
+                            <div className="relative overflow-hidden rounded-3xl border-2 border-emerald-200/50 bg-gradient-to-br from-white/80 to-emerald-50/50 p-8 shadow-xl backdrop-blur-sm dark:border-emerald-800/50 dark:from-emerald-950/80 dark:to-green-950/50 lg:p-10">
+                                <div className="relative text-center">
+                                    <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
+                                        <Heart className="h-10 w-10 text-white" />
                                     </div>
-                                    <CardTitle>Nilai</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        Autentisitas, inklusivitas, dan keberlanjutan dalam
-                                        setiap langkah kami untuk menjaga warisan budaya
-                                        nusantara.
+                                    <h3 className="mb-4 text-2xl font-bold text-emerald-900 dark:text-emerald-100 lg:text-3xl">
+                                        Nilai-Nilai Kami
+                                    </h3>
+                                    <p className="mx-auto max-w-3xl text-lg leading-relaxed text-emerald-800 dark:text-emerald-200">
+                                        <strong>Autentisitas</strong> dalam setiap dokumentasi, <strong>Inklusivitas</strong> untuk semua kalangan, 
+                                        dan <strong>Keberlanjutan</strong> dalam menjaga warisan budaya nusantara untuk generasi mendatang.
                                     </p>
-                                </CardContent>
-                            </Card>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* What We Do Section */}
-                <div className="relative px-6 py-16 lg:px-12">
+                {/* What We Do Section - Simplified */}
+                <div className="relative bg-white/60 px-6 py-20 backdrop-blur-sm dark:bg-amber-950/60 lg:px-12">
                     <div className="mx-auto max-w-7xl">
-                        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4">
-                            <Badge className="mb-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 px-4 py-2">
+                        <div className="mb-16 text-center">
+                            <Badge className="mb-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 px-4 py-2 text-amber-900 dark:text-amber-100">
                                 <Star className="mr-2 h-4 w-4" />
                                 Layanan Kami
                             </Badge>
-                            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                            <h2 className="mb-4 text-3xl font-bold tracking-tight text-amber-900 dark:text-amber-100 sm:text-4xl">
                                 Apa yang Kami Lakukan
                             </h2>
-                            <p className="mx-auto max-w-2xl text-muted-foreground">
+                            <p className="mx-auto max-w-2xl text-lg text-amber-800/80 dark:text-amber-200/80">
                                 Tiga pilar utama dalam melestarikan budaya Indonesia
                             </p>
                         </div>
 
-                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            <div className="group rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-8 text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
-                                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                                    <Globe className="h-7 w-7" />
+                        <div className="grid gap-8 lg:grid-cols-3">
+                            {/* Card 1 - Dokumentasi */}
+                            <div className="group relative overflow-hidden rounded-2xl border-2 border-amber-200/50 bg-white p-8 shadow-lg transition-all hover:-translate-y-2 hover:border-amber-400 hover:shadow-xl dark:border-amber-800/50 dark:bg-amber-950/90">
+                                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br from-amber-400/10 to-orange-500/10 blur-2xl"></div>
+                                <div className="relative">
+                                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg">
+                                        <Globe className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="mb-3 text-2xl font-bold text-amber-900 dark:text-amber-100">
+                                        Dokumentasi Budaya
+                                    </h3>
+                                    <p className="leading-relaxed text-amber-800/90 dark:text-amber-200/90">
+                                        Mengumpulkan dan mendokumentasikan berbagai bentuk budaya Indonesia dalam format digital yang dapat diakses siapa saja, kapan saja.
+                                    </p>
                                 </div>
-                                <h3 className="mb-3 text-xl font-bold">
-                                    Dokumentasi Budaya
-                                </h3>
-                                <p className="text-amber-50">
-                                    Mengumpulkan dan mendokumentasikan berbagai bentuk
-                                    budaya Indonesia dalam format digital yang dapat
-                                    diakses siapa saja, kapan saja.
-                                </p>
                             </div>
 
-                            <div className="group rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
-                                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                                    <Calendar className="h-7 w-7" />
+                            {/* Card 2 - Event */}
+                            <div className="group relative overflow-hidden rounded-2xl border-2 border-blue-200/50 bg-white p-8 shadow-lg transition-all hover:-translate-y-2 hover:border-blue-400 hover:shadow-xl dark:border-blue-800/50 dark:bg-blue-950/90">
+                                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br from-blue-400/10 to-indigo-500/10 blur-2xl"></div>
+                                <div className="relative">
+                                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
+                                        <Calendar className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="mb-3 text-2xl font-bold text-blue-900 dark:text-blue-100">
+                                        Penyelenggaraan Event
+                                    </h3>
+                                    <p className="leading-relaxed text-blue-800/90 dark:text-blue-200/90">
+                                        Mengorganisir festival, workshop, dan acara budaya untuk memperkenalkan dan melestarikan tradisi kepada masyarakat luas.
+                                    </p>
                                 </div>
-                                <h3 className="mb-3 text-xl font-bold">
-                                    Penyelenggaraan Event
-                                </h3>
-                                <p className="text-blue-50">
-                                    Mengorganisir festival, workshop, dan acara budaya
-                                    untuk memperkenalkan dan melestarikan tradisi kepada
-                                    masyarakat luas.
-                                </p>
                             </div>
 
-                            <div className="group rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 p-8 text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl md:col-span-2 lg:col-span-1">
-                                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                                    <ShoppingBag className="h-7 w-7" />
+                            {/* Card 3 - Marketplace */}
+                            <div className="group relative overflow-hidden rounded-2xl border-2 border-emerald-200/50 bg-white p-8 shadow-lg transition-all hover:-translate-y-2 hover:border-emerald-400 hover:shadow-xl dark:border-emerald-800/50 dark:bg-emerald-950/90">
+                                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-400/10 to-green-500/10 blur-2xl"></div>
+                                <div className="relative">
+                                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg">
+                                        <ShoppingBag className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="mb-3 text-2xl font-bold text-emerald-900 dark:text-emerald-100">
+                                        Marketplace Lokal
+                                    </h3>
+                                    <p className="leading-relaxed text-emerald-800/90 dark:text-emerald-200/90">
+                                        Menyediakan platform bagi pengrajin dan pelaku UMKM untuk memasarkan produk budaya Indonesia ke pasar yang lebih luas.
+                                    </p>
                                 </div>
-                                <h3 className="mb-3 text-xl font-bold">
-                                    Marketplace Lokal
-                                </h3>
-                                <p className="text-emerald-50">
-                                    Menyediakan platform bagi pengrajin dan pelaku UMKM
-                                    untuk memasarkan produk budaya Indonesia ke pasar yang
-                                    lebih luas.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -533,7 +592,7 @@ export default function About({ stats, team }: AboutProps) {
                                 className="border-2 border-white bg-transparent text-white shadow-2xl transition-all hover:bg-white hover:text-amber-600"
                                 asChild
                             >
-                                <Link href="/events/list">
+                                <Link href="/event">
                                     <Calendar className="mr-2 h-5 w-5" />
                                     Lihat Event
                                 </Link>

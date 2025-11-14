@@ -209,84 +209,164 @@ export default function Welcome({
                             </p>
                         </div>
 
-                        {/* Cultural Highlights Grid */}
-                        <div className="mb-20 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        {/* Cultural Highlights Grid - Enhanced with Images */}
+                        <div className="mb-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                             {/* Card 1 - Seni & Tradisi */}
-                            <div className="group relative overflow-hidden rounded-2xl border-2 border-amber-200 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-amber-400 hover:shadow-2xl dark:border-amber-800 dark:bg-amber-950/80">
-                                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-amber-400/20 to-orange-500/20 blur-2xl transition-all duration-500 group-hover:scale-150"></div>
-                                <div className="relative">
-                                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                                        <Palette className="h-8 w-8 text-white" />
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-amber-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-amber-400 hover:shadow-amber-500/25 dark:border-amber-800/50 dark:bg-amber-950/90">
+                                {/* Image Header */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="/seni dan tari.png" 
+                                        alt="Batik Indonesia"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4">
+                                        <Badge className="border-0 bg-white/90 text-amber-900 shadow-lg backdrop-blur-md">
+                                            <Sparkles className="mr-1 h-3 w-3" />
+                                            UNESCO
+                                        </Badge>
                                     </div>
+                                </div>
+                                
+                                {/* Content */}
+                                <div className="relative p-6">
                                     <h3 className="mb-3 text-xl font-bold text-amber-900 dark:text-amber-100">
                                         Seni & Tradisi
                                     </h3>
                                     <p className="mb-4 text-sm leading-relaxed text-amber-800/90 dark:text-amber-200/90">
                                         Batik, wayang kulit, tari tradisional, ukiran kayu, dan seni rupa yang diwariskan turun-temurun selama berabad-abad.
                                     </p>
-                                    <div className="flex items-center gap-2 text-xs font-semibold text-amber-600 dark:text-amber-400">
-                                        <span>9 Warisan UNESCO</span>
-                                        <Sparkles className="h-3 w-3" />
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-amber-600 dark:text-amber-400">
+                                            <Palette className="h-4 w-4" />
+                                            <span>9 Warisan UNESCO</span>
+                                        </div>
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 transition-all group-hover:bg-amber-500 group-hover:text-white">
+                                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Card 2 - Bahasa & Sastra */}
-                            <div className="group relative overflow-hidden rounded-2xl border-2 border-blue-200 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-2xl dark:border-blue-800 dark:bg-blue-950/80">
-                                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-500/20 blur-2xl transition-all duration-500 group-hover:scale-150"></div>
-                                <div className="relative">
-                                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                                        <Languages className="h-8 w-8 text-white" />
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-blue-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-blue-400 hover:shadow-blue-500/25 dark:border-blue-800/50 dark:bg-blue-950/90">
+                                {/* Image Header */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="/bahasa sastra.png" 
+                                        alt="Aksara Nusantara"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4">
+                                        <Badge className="border-0 bg-white/90 text-blue-900 shadow-lg backdrop-blur-md">
+                                            <BookOpen className="mr-1 h-3 w-3" />
+                                            Literasi
+                                        </Badge>
                                     </div>
+                                </div>
+                                
+                                {/* Content */}
+                                <div className="relative p-6">
                                     <h3 className="mb-3 text-xl font-bold text-blue-900 dark:text-blue-100">
                                         Bahasa & Sastra
                                     </h3>
                                     <p className="mb-4 text-sm leading-relaxed text-blue-800/90 dark:text-blue-200/90">
                                         Lebih dari 700 bahasa daerah masih digunakan, dengan aksara kuno seperti Jawa, Bali, dan Sunda yang tetap lestari.
                                     </p>
-                                    <div className="flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400">
-                                        <span>700+ Bahasa Daerah</span>
-                                        <BookOpen className="h-3 w-3" />
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400">
+                                            <Languages className="h-4 w-4" />
+                                            <span>700+ Bahasa</span>
+                                        </div>
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 transition-all group-hover:bg-blue-500 group-hover:text-white">
+                                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Card 3 - Musik & Tari */}
-                            <div className="group relative overflow-hidden rounded-2xl border-2 border-purple-200 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-purple-400 hover:shadow-2xl dark:border-purple-800 dark:bg-purple-950/80">
-                                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-500/20 blur-2xl transition-all duration-500 group-hover:scale-150"></div>
-                                <div className="relative">
-                                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                                        <Music className="h-8 w-8 text-white" />
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-purple-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-purple-400 hover:shadow-purple-500/25 dark:border-purple-800/50 dark:bg-purple-950/90">
+                                {/* Image Header */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="/musik dan tari.png" 
+                                        alt="Tari Tradisional Indonesia"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4">
+                                        <Badge className="border-0 bg-white/90 text-purple-900 shadow-lg backdrop-blur-md">
+                                            <Music className="mr-1 h-3 w-3" />
+                                            Seni Tari
+                                        </Badge>
                                     </div>
+                                </div>
+                                
+                                {/* Content */}
+                                <div className="relative p-6">
                                     <h3 className="mb-3 text-xl font-bold text-purple-900 dark:text-purple-100">
                                         Musik & Tari
                                     </h3>
                                     <p className="mb-4 text-sm leading-relaxed text-purple-800/90 dark:text-purple-200/90">
                                         Gamelan, angklung, tari Saman, tari Kecak, dan ratusan tarian tradisional yang memukau dunia.
                                     </p>
-                                    <div className="flex items-center gap-2 text-xs font-semibold text-purple-600 dark:text-purple-400">
-                                        <span>300+ Tarian Tradisional</span>
-                                        <Music className="h-3 w-3" />
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-purple-600 dark:text-purple-400">
+                                            <Music className="h-4 w-4" />
+                                            <span>300+ Tarian</span>
+                                        </div>
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 transition-all group-hover:bg-purple-500 group-hover:text-white">
+                                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Card 4 - Kuliner Nusantara */}
-                            <div className="group relative overflow-hidden rounded-2xl border-2 border-emerald-200 bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-emerald-400 hover:shadow-2xl dark:border-emerald-800 dark:bg-emerald-950/80">
-                                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-400/20 to-green-500/20 blur-2xl transition-all duration-500 group-hover:scale-150"></div>
-                                <div className="relative">
-                                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                                        <UtensilsCrossed className="h-8 w-8 text-white" />
+                            <div className="group relative overflow-hidden rounded-3xl border-2 border-emerald-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-emerald-400 hover:shadow-emerald-500/25 dark:border-emerald-800/50 dark:bg-emerald-950/90">
+                                {/* Image Header */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img 
+                                        src="/kuliner nusantara.png" 
+                                        alt="Kuliner Indonesia"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                    <div className="absolute bottom-4 left-4">
+                                        <Badge className="border-0 bg-white/90 text-emerald-900 shadow-lg backdrop-blur-md">
+                                            <UtensilsCrossed className="mr-1 h-3 w-3" />
+                                            Kuliner
+                                        </Badge>
                                     </div>
+                                </div>
+                                
+                                {/* Content */}
+                                <div className="relative p-6">
                                     <h3 className="mb-3 text-xl font-bold text-emerald-900 dark:text-emerald-100">
                                         Kuliner Nusantara
                                     </h3>
                                     <p className="mb-4 text-sm leading-relaxed text-emerald-800/90 dark:text-emerald-200/90">
                                         Ribuan resep tradisional dengan rempah-rempah khas yang menjadikan Indonesia surganya kuliner.
                                     </p>
-                                    <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                                        <span>5000+ Resep Tradisional</span>
-                                        <UtensilsCrossed className="h-3 w-3" />
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                                            <UtensilsCrossed className="h-4 w-4" />
+                                            <span>5000+ Resep</span>
+                                        </div>
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 transition-all group-hover:bg-emerald-500 group-hover:text-white">
+                                            <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -357,10 +437,10 @@ export default function Welcome({
                                     <div className="relative space-y-6">
                                         <div className="text-center">
                                             <h3 className="mb-2 text-2xl font-bold text-amber-900 dark:text-amber-100">
-                                                🇮🇩 Peta Indonesia
+                                                Peta Indonesia
                                             </h3>
                                             <p className="text-sm text-amber-700 dark:text-amber-300">
-                                                Negara Maritim Terbesar di Dunia
+                                                Negara Maritim Terbesar di Dunia 
                                             </p>
                                         </div>
 
