@@ -76,15 +76,13 @@ export function WelcomeNavigation({ canRegister = true }: WelcomeNavigationProps
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
                 {/* Logo */}
                 <Link href="/" className="group flex items-center gap-3 transition-all duration-500 hover:scale-105">
-                    <img 
-                        src="/logo.png" 
-                        alt="Budaya Go Logo" 
-                        className={`w-auto transition-all duration-500 ${
-                            isScrolled 
-                                ? 'h-10 brightness-100 lg:h-11' 
-                                : 'h-14 brightness-0 invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] lg:h-16'
-                        }`}
-                    />
+                    <span className={`text-2xl font-bold transition-all duration-500 lg:text-3xl ${
+                        isScrolled 
+                            ? 'text-amber-900 dark:text-amber-100' 
+                            : 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]'
+                    }`}>
+                        Budayaku-Uhuy
+                    </span>
                 </Link>
 
                 {/* Right Side: Menu + Actions */}
