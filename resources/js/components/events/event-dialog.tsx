@@ -5,7 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Upload, X } from 'lucide-react';
 
 interface Event {
     id: number;
@@ -35,18 +36,20 @@ interface EventDialogProps {
 
 export function EventDialog({ open, onOpenChange, event, categories }: EventDialogProps) {
     const isEdit = !!event;
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-    const { data, setData, post, put, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset, transform } = useForm({
         title: event?.title || '',
         event_category_id: event?.category_id || '',
         description: event?.description || '',
         date: event?.date || '',
         time: event?.time || '',
         location: event?.location || '',
-        image: event?.image || '',
+        image: null as File | null,
         status: event?.status || 'upcoming',
         max_participants: event?.maxParticipants || '',
         price: event?.price || '',
+        _method: 'POST' as 'POST' | 'PUT',
     });
 
     useEffect(() => {
@@ -58,36 +61,51 @@ export function EventDialog({ open, onOpenChange, event, categories }: EventDial
                 date: event.date,
                 time: event.time,
                 location: event.location,
-                image: event.image || '',
+                image: null,
                 status: event.status,
                 max_participants: event.maxParticipants || '',
                 price: event.price || '',
+                _method: 'PUT',
             });
+            setImagePreview(event.image ? `/storage/${event.image}` : null);
         } else {
+            setData('_method', 'POST');
             reset();
+            setImagePreview(null);
         }
     }, [event]);
+
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setData('image', file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleRemoveImage = () => {
+        setData('image', null);
+        setImagePreview(null);
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (isEdit) {
-            put(`/events/list/${event.id}`, {
-                preserveScroll: true,
-                onSuccess: () => {
-                    onOpenChange(false);
-                    reset();
-                },
-            });
-        } else {
-            post('/events/list', {
-                preserveScroll: true,
-                onSuccess: () => {
-                    onOpenChange(false);
-                    reset();
-                },
-            });
-        }
+        const url = isEdit ? `/events/list/${event.id}` : '/events/list';
+
+        post(url, {
+            preserveScroll: true,
+            forceFormData: true,
+            onSuccess: () => {
+                onOpenChange(false);
+                reset();
+                setImagePreview(null);
+            },
+        });
     };
 
     return (
@@ -228,14 +246,49 @@ export function EventDialog({ open, onOpenChange, event, categories }: EventDial
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="image">URL Gambar</Label>
-                            <Input
-                                id="image"
-                                value={data.image}
-                                onChange={(e) => setData('image', e.target.value)}
-                                placeholder="https://example.com/image.jpg"
-                                className={errors.image ? 'border-red-500' : ''}
-                            />
+                            <Label htmlFor="image">Gambar Event</Label>
+                            {imagePreview ? (
+                                <div className="relative">
+                                    <img
+                                        src={imagePreview}
+                                        alt="Preview"
+                                        className="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <Button
+                                        type="button"
+                                        variant="destructive"
+                                        size="icon"
+                                        className="absolute right-2 top-2"
+                                        onClick={handleRemoveImage}
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="flex items-center justify-center w-full">
+                                    <label
+                                        htmlFor="image"
+                                        className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 ${errors.image ? 'border-red-500' : 'border-gray-300'}`}
+                                    >
+                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <Upload className="w-10 h-10 mb-3 text-gray-400" />
+                                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                                <span className="font-semibold">Klik untuk upload</span> atau drag and drop
+                                            </p>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                PNG, JPG, JPEG atau WEBP (MAX. 2MB)
+                                            </p>
+                                        </div>
+                                        <input
+                                            id="image"
+                                            type="file"
+                                            className="hidden"
+                                            accept="image/png,image/jpeg,image/jpg,image/webp"
+                                            onChange={handleImageChange}
+                                        />
+                                    </label>
+                                </div>
+                            )}
                             {errors.image && <p className="text-sm text-red-500">{errors.image}</p>}
                         </div>
                     </div>

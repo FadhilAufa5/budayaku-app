@@ -10,6 +10,12 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
+Route::get('/budaya', [\App\Http\Controllers\PublicCultureController::class, 'index'])->name('budaya.index');
+Route::get('/budaya/{culture}', [\App\Http\Controllers\PublicCultureController::class, 'show'])->name('budaya.show');
+Route::get('/event', [\App\Http\Controllers\PublicEventController::class, 'index'])->name('event.index');
+Route::get('/event/{event}', [\App\Http\Controllers\PublicEventController::class, 'show'])->name('event.show');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');

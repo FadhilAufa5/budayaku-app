@@ -78,11 +78,15 @@ class EventController extends Controller
             'date' => 'required|date',
             'time' => 'required',
             'location' => 'required|string|max:255',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'status' => 'required|in:upcoming,ongoing,completed,cancelled',
             'max_participants' => 'nullable|integer|min:1',
             'price' => 'nullable|string',
         ]);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('events', 'public');
+        }
 
         Event::create($validated);
 
@@ -98,11 +102,22 @@ class EventController extends Controller
             'date' => 'required|date',
             'time' => 'required',
             'location' => 'required|string|max:255',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'status' => 'required|in:upcoming,ongoing,completed,cancelled',
             'max_participants' => 'nullable|integer|min:1',
             'price' => 'nullable|string',
         ]);
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($event->image && \Storage::disk('public')->exists($event->image)) {
+                \Storage::disk('public')->delete($event->image);
+            }
+            $validated['image'] = $request->file('image')->store('events', 'public');
+        } else {
+            // Keep the old image if no new image is uploaded
+            unset($validated['image']);
+        }
 
         $event->update($validated);
 
@@ -111,6 +126,11 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
+        // Delete image if exists
+        if ($event->image && \Storage::disk('public')->exists($event->image)) {
+            \Storage::disk('public')->delete($event->image);
+        }
+
         $event->delete();
 
         return redirect()->route('events.index')->with('success', 'Event berhasil dihapus.');

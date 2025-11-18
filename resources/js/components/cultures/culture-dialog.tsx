@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Select,
     SelectContent,
@@ -19,6 +19,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { Upload, X } from 'lucide-react';
 
 interface Culture {
     id: number;
@@ -44,14 +45,16 @@ interface CultureDialogProps {
 
 export function CultureDialog({ open, onOpenChange, culture, categories }: CultureDialogProps) {
     const isEdit = !!culture;
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-    const { data, setData, post, put, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         name: culture?.name || '',
         culture_category_id: culture?.category_id || '',
         region: culture?.region || '',
         description: culture?.description || '',
-        image: culture?.image || '',
+        image: null as File | null,
         status: culture?.status || 'active',
+        _method: 'POST' as 'POST' | 'PUT',
     });
 
     useEffect(() => {
@@ -61,34 +64,49 @@ export function CultureDialog({ open, onOpenChange, culture, categories }: Cultu
                 culture_category_id: culture.category_id,
                 region: culture.region,
                 description: culture.description || '',
-                image: culture.image || '',
+                image: null,
                 status: culture.status,
+                _method: 'PUT',
             });
+            setImagePreview(culture.image ? `/storage/${culture.image}` : null);
         } else {
+            setData('_method', 'POST');
             reset();
+            setImagePreview(null);
         }
     }, [culture]);
+
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setData('image', file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleRemoveImage = () => {
+        setData('image', null);
+        setImagePreview(null);
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (isEdit) {
-            put(`/events/cultures/${culture.id}`, {
-                preserveScroll: true,
-                onSuccess: () => {
-                    onOpenChange(false);
-                    reset();
-                },
-            });
-        } else {
-            post('/events/cultures', {
-                preserveScroll: true,
-                onSuccess: () => {
-                    onOpenChange(false);
-                    reset();
-                },
-            });
-        }
+        const url = isEdit ? `/events/cultures/${culture.id}` : '/events/cultures';
+
+        post(url, {
+            preserveScroll: true,
+            forceFormData: true,
+            onSuccess: () => {
+                onOpenChange(false);
+                reset();
+                setImagePreview(null);
+            },
+        });
     };
 
     return (
@@ -181,15 +199,50 @@ export function CultureDialog({ open, onOpenChange, culture, categories }: Cultu
 
                         <div className="grid gap-2">
                             <Label htmlFor="image">
-                                URL Gambar
+                                Gambar Budaya
                             </Label>
-                            <Input
-                                id="image"
-                                value={data.image}
-                                onChange={(e) => setData('image', e.target.value)}
-                                placeholder="https://example.com/image.jpg"
-                                className={errors.image ? 'border-red-500' : ''}
-                            />
+                            {imagePreview ? (
+                                <div className="relative">
+                                    <img
+                                        src={imagePreview}
+                                        alt="Preview"
+                                        className="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <Button
+                                        type="button"
+                                        variant="destructive"
+                                        size="icon"
+                                        className="absolute right-2 top-2"
+                                        onClick={handleRemoveImage}
+                                    >
+                                        <X className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            ) : (
+                                <div className="flex items-center justify-center w-full">
+                                    <label
+                                        htmlFor="image"
+                                        className={`flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 ${errors.image ? 'border-red-500' : 'border-gray-300'}`}
+                                    >
+                                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <Upload className="w-10 h-10 mb-3 text-gray-400" />
+                                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                                <span className="font-semibold">Klik untuk upload</span> atau drag and drop
+                                            </p>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                PNG, JPG, JPEG atau WEBP (MAX. 2MB)
+                                            </p>
+                                        </div>
+                                        <input
+                                            id="image"
+                                            type="file"
+                                            className="hidden"
+                                            accept="image/png,image/jpeg,image/jpg,image/webp"
+                                            onChange={handleImageChange}
+                                        />
+                                    </label>
+                                </div>
+                            )}
                             {errors.image && (
                                 <p className="text-sm text-red-500">{errors.image}</p>
                             )}
