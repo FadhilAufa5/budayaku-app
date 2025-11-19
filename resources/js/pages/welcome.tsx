@@ -13,8 +13,8 @@ import { useState, useEffect } from 'react';
 const imageLogos = [
   { src: "/Kain-Batik.jpg", alt: "Company 1", href: "https://company1.com" },
   { src: "/batik2.jpg", alt: "Company 1", href: "https://company1.com" },
-  { src: "/Kain-Batik.jpg", alt: "Company 1", href: "https://company1.com" },
-   { src: "/batik2.jpg", alt: "Company 1", href: "https://company1.com" },
+  { src: "/batik 3.webp", alt: "Company 1", href: "https://company1.com" },
+   { src: "/batik 3.webp", alt: "Company 1", href: "https://company1.com" },
   { src: "/Kain-Batik.jpg", alt: "Company 1", href: "https://company1.com" },
    { src: "/batik2.jpg", alt: "Company 1", href: "https://company1.com" },
  
@@ -212,7 +212,7 @@ export default function Welcome({
                         {/* Cultural Highlights Grid - Enhanced with Images */}
                         <div className="mb-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                             {/* Card 1 - Seni & Tradisi */}
-                            <div className="group relative overflow-hidden rounded-3xl border-2 border-amber-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-amber-400 hover:shadow-amber-500/25 dark:border-amber-800/50 dark:bg-amber-950/90">
+                            <Link href="/kekayaan-nusantara/seni-tradisi" className="group relative overflow-hidden rounded-3xl border-2 border-amber-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-amber-400 hover:shadow-amber-500/25 dark:border-amber-800/50 dark:bg-amber-950/90">
                                 {/* Image Header */}
                                 <div className="relative h-48 overflow-hidden">
                                     <img 
@@ -249,10 +249,10 @@ export default function Welcome({
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                             {/* Card 2 - Bahasa & Sastra */}
-                            <div className="group relative overflow-hidden rounded-3xl border-2 border-blue-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-blue-400 hover:shadow-blue-500/25 dark:border-blue-800/50 dark:bg-blue-950/90">
+                            <Link href="/kekayaan-nusantara/bahasa-sastra" className="group relative overflow-hidden rounded-3xl border-2 border-blue-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-blue-400 hover:shadow-blue-500/25 dark:border-blue-800/50 dark:bg-blue-950/90">
                                 {/* Image Header */}
                                 <div className="relative h-48 overflow-hidden">
                                     <img 
@@ -289,10 +289,10 @@ export default function Welcome({
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                             {/* Card 3 - Musik & Tari */}
-                            <div className="group relative overflow-hidden rounded-3xl border-2 border-purple-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-purple-400 hover:shadow-purple-500/25 dark:border-purple-800/50 dark:bg-purple-950/90">
+                            <Link href="/kekayaan-nusantara/musik-tari" className="group relative overflow-hidden rounded-3xl border-2 border-purple-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-purple-400 hover:shadow-purple-500/25 dark:border-purple-800/50 dark:bg-purple-950/90">
                                 {/* Image Header */}
                                 <div className="relative h-48 overflow-hidden">
                                     <img 
@@ -329,10 +329,10 @@ export default function Welcome({
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                             {/* Card 4 - Kuliner Nusantara */}
-                            <div className="group relative overflow-hidden rounded-3xl border-2 border-emerald-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-emerald-400 hover:shadow-emerald-500/25 dark:border-emerald-800/50 dark:bg-emerald-950/90">
+                            <Link href="/kekayaan-nusantara/kuliner-nusantara" className="group relative overflow-hidden rounded-3xl border-2 border-emerald-200/50 bg-white shadow-2xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-3 hover:border-emerald-400 hover:shadow-emerald-500/25 dark:border-emerald-800/50 dark:bg-emerald-950/90">
                                 {/* Image Header */}
                                 <div className="relative h-48 overflow-hidden">
                                     <img 
@@ -369,7 +369,7 @@ export default function Welcome({
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
                         {/* Indonesia Map & Stats Section */}

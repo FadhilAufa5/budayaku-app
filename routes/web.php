@@ -16,6 +16,31 @@ Route::get('/budaya/{culture}', [\App\Http\Controllers\PublicCultureController::
 Route::get('/event', [\App\Http\Controllers\PublicEventController::class, 'index'])->name('event.index');
 Route::get('/event/{event}', [\App\Http\Controllers\PublicEventController::class, 'show'])->name('event.show');
 
+// Kekayaan Nusantara Routes
+Route::get('/kekayaan-nusantara/seni-tradisi', function () {
+    return Inertia::render('kekayaan-nusantara/seni-tradisi', [
+        'canRegister' => Features::enabled(Features::registration()),
+    ]);
+})->name('kekayaan-nusantara.seni-tradisi');
+
+Route::get('/kekayaan-nusantara/bahasa-sastra', function () {
+    return Inertia::render('kekayaan-nusantara/bahasa-sastra', [
+        'canRegister' => Features::enabled(Features::registration()),
+    ]);
+})->name('kekayaan-nusantara.bahasa-sastra');
+
+Route::get('/kekayaan-nusantara/musik-tari', function () {
+    return Inertia::render('kekayaan-nusantara/musik-tari', [
+        'canRegister' => Features::enabled(Features::registration()),
+    ]);
+})->name('kekayaan-nusantara.musik-tari');
+
+Route::get('/kekayaan-nusantara/kuliner-nusantara', function () {
+    return Inertia::render('kekayaan-nusantara/kuliner-nusantara', [
+        'canRegister' => Features::enabled(Features::registration()),
+    ]);
+})->name('kekayaan-nusantara.kuliner-nusantara');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
